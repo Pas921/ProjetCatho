@@ -1,4 +1,4 @@
-export default pays = [
+export default listePays = [
     {
         id: 1,
         pays: "France"
