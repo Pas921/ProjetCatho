@@ -1,6 +1,4 @@
 import React from 'react'
-//import ecoles from '../Helpers/ListeEcoles.js'
-import listePays from '../Helpers/ListePays'
 import { View, Text, FlatList } from 'react-native'
 
 class Liste extends React.Component {
