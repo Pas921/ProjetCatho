@@ -24,17 +24,20 @@ const data = [
     "DU MGI"
 ]
 
-const retour = []
+
 
 const listeFiliereOui = () => {
+
+    const retour = []
+
     for ( var i in data ) {
-        if (ecoles[4][ data[i] ] == "oui") {
+        if (ecoles[this.props.id][ data[i] ] == "oui") {
             retour.push({key: data[i]})
         }
     }
-} 
 
-listeFiliereOui()
+    return retour;
+} 
 
 class FiliereDispo extends React.Component {
 
@@ -45,7 +48,7 @@ class FiliereDispo extends React.Component {
             <View>
                 <Text> Filières compatibles : </Text>
                 <FlatList
-                    data = { retour }
+                    data = { listeFiliereOui() }
                     renderItem = { ( { item } ) => <Text> - { item.key } </Text> }
                 />
             </View>

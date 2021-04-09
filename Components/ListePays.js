@@ -1,14 +1,13 @@
 import React from 'react'
 import { View, Text, FlatList } from 'react-native'
+import ListeEcoles from './ListeEcoles'
 
 import * as liste from "../Helpers/liste.json"
 
-const pays = [];
-const paystrie = [];
-const ecoles = [];
-var existe = 0;
-
 const listePays = () => {
+
+    const pays = [];
+    var existe = 0;
 
     for ( var i in liste ) {
         for ( var j in pays ) {
@@ -33,11 +32,14 @@ const listePays = () => {
         }
         existe = 0 ;
     }
+
+    return pays;
 } 
 
 const trisPays = () => {
 
-    listePays();
+    const pays = listePays();
+    const paystrie = [];
 
     for ( var i in pays ) {
 
@@ -45,48 +47,32 @@ const trisPays = () => {
 
     }
 
-}
-
-const listeEcole = ( monPays ) => {
-
-    var temp = [];
-
-    for ( var i in liste ) {
-        if ( liste[i].field1 == monPays ) {
-            temp.push(liste[i]['ECHANGES INTERNATIONAUX']) ;
-        }
-    }
-
-    for ( var j in temp) {
-        
-        ecoles.push({ key: temp.sort()[j] })
-
-    }
-
-    return(ecoles);
+    return paystrie;
 
 }
 
 
-trisPays()
+class ListePays extends React.Component {
 
-class Essai extends React.Component {
-
-    render() {
+    render () {
 
         return (
 
             <View>
                 <FlatList
-                    data = { paystrie }
-                    renderItem = { ( { item } ) => <Text> { item.key } </Text> }
+                    data = { trisPays() }
+                    renderItem = { ( { item } ) =>  (
+                        <View>
+                            <Text style={{fontWeight: "bold"}}> { item.key } </Text>
+                            <ListeEcoles name = { item.key } />
+                        </View>
+                    ) }
                 />
             </View>
 
         )
-
     }
 
 }
 
-export default Essai
+export default ListePays
