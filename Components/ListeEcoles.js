@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, Button } from 'react-native'
 
 import * as liste from "../Helpers/liste.json"
 
@@ -20,13 +20,16 @@ const listeEcole = ( monPays ) => {
 class ListeEcoles extends React.Component {
 
     render() {
-
+        //console.log(this.props)
         return (
 
             <View>
                 <FlatList
                     data = { listeEcole( this.props.name ) }
-                    renderItem = { ( { item } ) => <Text> { item.name } </Text> }
+                    renderItem = { ( { item } ) => 
+                        //<Text> { item.name } </Text> 
+                        <Button title={ item.name } onPress={ () => this.props.nav.navigate('Ecole', { id: item.key }) } />
+                    }
                 />
             </View>
 

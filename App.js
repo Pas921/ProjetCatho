@@ -1,25 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import Recherche from './Components/Recherche.js'
 import Ecole from './Components/Ecole.js'
 import ListePays from './Components/ListePays.js'
+import Navigation from './Navigation/Navigation.js'
 import { StyleSheet, Text, View, Image } from 'react-native';
+import react from 'react';
 
-export default function App() {
-  return (
-    <View>
-      <StatusBar style="auto" />
-      <Recherche/>
-      <ListePays/>
-    </View>
-  );
+export default class App extends react.Component {
+  render () {
+    return (
+      <Navigation/>
+    )
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

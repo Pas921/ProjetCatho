@@ -1,11 +1,10 @@
 import React from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, TextInput, Button, FlatList, StyleSheet } from 'react-native'
 import ListeEcoles from './ListeEcoles'
 
 import * as liste from "../Helpers/liste.json"
 
 const listePays = () => {
-
     const pays = [];
     var existe = 0;
 
@@ -21,10 +20,8 @@ const listePays = () => {
                 || liste[i].field1 == "" ) {
 
                 existe = 1 ;
-
             }
         }
-
         if ( existe == 0 ) {
 
             pays.push(liste[i].field1)
@@ -32,39 +29,37 @@ const listePays = () => {
         }
         existe = 0 ;
     }
-
     return pays;
 } 
 
 const trisPays = () => {
-
     const pays = listePays();
     const paystrie = [];
 
     for ( var i in pays ) {
-
         paystrie.push({ key: pays.sort()[i] }) ;
-
     }
 
     return paystrie;
-
 }
+
 
 
 class ListePays extends React.Component {
 
     render () {
-
+        //console.log(this.props)
         return (
 
             <View>
+                <TextInput placeholder="Rechercher pays ou école" style={styles.TextInput}/>
+                <Button title="Rechercher" onPress={() => {}}/>
                 <FlatList
                     data = { trisPays() }
                     renderItem = { ( { item } ) =>  (
                         <View>
-                            <Text style={{fontWeight: "bold"}}> { item.key } </Text>
-                            <ListeEcoles name = { item.key } />
+                            <Text style={ styles.Pays }> { item.key } </Text>
+                            <ListeEcoles name = { item.key } nav = { this.props.navigation } />
                         </View>
                     ) }
                 />
@@ -74,5 +69,18 @@ class ListePays extends React.Component {
     }
 
 }
+
+const styles = StyleSheet.create({
+    TextInput: {
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingLeft: 5,
+        paddingRight: 5
+    },
+    Pays: {
+        fontSize: 20,
+        fontWeight: "bold"
+    }
+  });
 
 export default ListePays

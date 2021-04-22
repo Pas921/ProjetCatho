@@ -26,12 +26,12 @@ const data = [
 
 
 
-const listeFiliereOui = () => {
+const listeFiliereOui = ( monId ) => {
 
     const retour = []
 
     for ( var i in data ) {
-        if (ecoles[this.props.id][ data[i] ] == "oui") {
+        if ( ecoles[monId][ data[i] ] == "oui" ) {
             retour.push({key: data[i]})
         }
     }
@@ -42,13 +42,13 @@ const listeFiliereOui = () => {
 class FiliereDispo extends React.Component {
 
     render() {
-
+        console.log(this.props.id)
         return (
 
             <View>
                 <Text> Filières compatibles : </Text>
                 <FlatList
-                    data = { listeFiliereOui() }
+                    data = { listeFiliereOui( this.props.id ) }
                     renderItem = { ( { item } ) => <Text> - { item.key } </Text> }
                 />
             </View>

@@ -1,21 +1,30 @@
 import React from 'react'
 import { View, TextInput, Button, StyleSheet } from 'react-native'
+import { SearchBar } from 'react-native-elements';
 
 class Recherche extends React.Component {
 
+    state = {
+        search: '',
+    };
+
+    updateSearch = (search) => {
+        this.setState({ search });
+    };
+
     render() {
+        const { search } = this.state;
 
         return (
-
-            <View style={{ marginTop: 20 }}>
-                <TextInput placeholder="Rechercher pays ou école" style={styles.TextInput}/>
-                <Button title="Rechercher" onPress={() => {}}/>
-            </View>
-
-        )
-
+            <SearchBar
+                placeholder="Type Here..."
+                onChangeText={this.updateSearch}
+                value={search}
+            />
+        );
     }
 }
+
 
 const styles = StyleSheet.create({
     TextInput: {
