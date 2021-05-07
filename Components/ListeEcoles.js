@@ -8,8 +8,10 @@ const listeEcole = ( monPays ) => {
     const ecoles = [];
 
     for ( var i in liste ) {
-        if ( liste[i].field1 == monPays ) {
-            ecoles.push({ key: i, name :liste[i]['ECHANGES INTERNATIONAUX'] });
+        if ( liste[i].field1 == monPays 
+             && liste[i]['ECHANGES INTERNATIONAUX'] != ""
+             && liste[i]['ECHANGES INTERNATIONAUX'] != undefined ) {
+            ecoles.push({ key: i, name: liste[i]['ECHANGES INTERNATIONAUX'] });
         }
     }
 

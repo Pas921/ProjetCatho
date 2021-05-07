@@ -51,8 +51,8 @@ class ListePays extends React.Component {
         //console.log(this.props)
         return (
 
-            <View>
-                <TextInput placeholder="Rechercher pays ou école" style={styles.TextInput}/>
+            <View style={ styles.View }>
+                <TextInput placeholder="Rechercher pays ou école" style={ styles.TextInput }/>
                 <Button title="Rechercher" onPress={() => {}}/>
                 <FlatList
                     data = { trisPays() }
@@ -80,6 +80,12 @@ const styles = StyleSheet.create({
     Pays: {
         fontSize: 20,
         fontWeight: "bold"
+    },
+    View: {
+        marginBottom: 50
+    },
+    recherche: {
+        flexDirection: 'row'
     }
   });
 
