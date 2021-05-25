@@ -1,7 +1,9 @@
 import React from 'react'
 import { View, Text, Image, FlatList } from 'react-native'
 
-import * as ecoles from '../Helpers/liste.json'
+import * as liste from '../Helpers/liste_accents.json'
+
+const ecoles = liste[0]
 
 const data = [
     "L2 Eco Fi",
@@ -42,7 +44,7 @@ const listeFiliereOui = ( monId ) => {
 class FiliereDispo extends React.Component {
 
     render() {
-        console.log(this.props.id)
+        // console.log(this.props.id)
         return (
 
             <View>

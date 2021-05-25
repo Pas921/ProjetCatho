@@ -1,21 +1,21 @@
 import React from 'react'
 import { View, Text, FlatList, TouchableOpacity, Button } from 'react-native'
 
-import * as liste from "../Helpers/liste.json"
+import * as liste from "../Helpers/liste_accents.json"
 
-const listeEcole = ( monPays ) => {
+const listeEcole = ( info ) => {
 
     const ecoles = [];
 
     for ( var i in liste ) {
-        if ( liste[i].field1 == monPays 
+        if ( liste[i].field1 == info.key 
              && liste[i]['ECHANGES INTERNATIONAUX'] != ""
              && liste[i]['ECHANGES INTERNATIONAUX'] != undefined ) {
-            ecoles.push({ key: i, name: liste[i]['ECHANGES INTERNATIONAUX'] });
+            info.ecoles.push({ key: i, name: liste[i]['ECHANGES INTERNATIONAUX'] });
         }
     }
 
-    return(ecoles);
+    return(info.ecoles);
 
 }
 
@@ -27,7 +27,7 @@ class ListeEcoles extends React.Component {
 
             <View>
                 <FlatList
-                    data = { listeEcole( this.props.name ) }
+                    data = { listeEcole( this.props ) }
                     renderItem = { ( { item } ) => 
                         //<Text> { item.name } </Text> 
                         <Button title={ item.name } onPress={ () => this.props.nav.navigate('Ecole', { id: item.key }) } />
