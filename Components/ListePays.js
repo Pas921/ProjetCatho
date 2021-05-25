@@ -85,17 +85,23 @@ const listeEcole = () => {
  * Foretement inspiré du lien suivant : 
  *  https://www.freecodecamp.org/news/how-to-build-a-react-native-flatlist-with-realtime-searching-ability-81ad100f6699/
  * Je n'ai pas réussi à l'appliquer à mon code
+ * Actuellement ne peux pas fonctionner sur les ecoles -> seulement les pays
+ * "undefined is not an object"
+ * 
+ * demander a Simon
+ * 
  */
 const searchFonction = (text) => {
     /*
-    return maListe.filter(item => {
+    const newData = maListe.filter( item => {
+        console.log(item.ecoles)
+        const itemData = `${item.pays_name.toUpperCase()}`;
+        const textData = text.toUpperCase();
 
-        const res = `${item.pays_name.toUpperCase()}`;
-        const val = text.toUpperCase();
-
-        return res.indexOf(val) > -1;
-
+        return itemData.indexOf(textData) > -1;
     })
+
+    return newData;
     */
 };
 
