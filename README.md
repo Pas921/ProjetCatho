@@ -19,3 +19,9 @@
   la fonction de Recherche
   Finir les Filtres
   Le système de comptes
+
+# explication
+
+  la conversion du excel (penser a faire des captures)
+  les nodes modules ont temporairement été retirés du gitignore, penser à les remettre après la première installation.
+  

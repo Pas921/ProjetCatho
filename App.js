@@ -14,7 +14,7 @@ import ListeEcoles from './Components/ListeEcoles.js';
 export default class App extends react.Component {
   render () {
     return (
-      <Filter/>
+      <Navigation/>
     )
   }
 }

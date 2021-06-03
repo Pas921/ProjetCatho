@@ -11,6 +11,7 @@ import * as liste from "../Helpers/liste_accents.json"
 
 const maListe = []
 const search = ""
+// liste_fonction récupère les données du fichier Json, autrment il faudrait le préciser à chaque fois.
 const liste_fonction = liste[0];
 
 
@@ -49,6 +50,7 @@ const listePays = () => {
 
 /**
  * Insère dans maListe les pays de listepays() triés par ordre alphabétiques
+ * @return la liste des pays triés
  */
 const trisPays = () => {
     const pays = listePays();
@@ -63,6 +65,7 @@ const trisPays = () => {
 
 /**
  * Pour chaques pays, crée la liste des écoles correspondante
+ * @update maListe
  */
 const listeEcole = () => {
 
